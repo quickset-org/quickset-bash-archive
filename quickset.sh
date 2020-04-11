@@ -51,6 +51,8 @@ printf "\e[93mquickset \e[94mv$QUICKSET_VERSION\e[96m running for $QUICKSET_FOUN
 
 sudo bash -c "curl -H 'Cache-Control: no-cache' -fsSL "${QUICKSET_RAW_REPO}"quickset.sh > /usr/local/bin/quickset";
 
+sudo bash -c "chmod +x /usr/local/bin/quickset";
+
 if [ "$#" -ne 1 ]; then
  printf "\e[91mError: Please provide at least one quickset recipe, $# provided \n\n"
  exit 1;
@@ -92,4 +94,4 @@ if [ "$QUICKSET_FOUND_PATH" = false ] ; then
     exit 1;
 fi;
 
-echo "Done."
+echo "Done.";
