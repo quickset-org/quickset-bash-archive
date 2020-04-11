@@ -5,7 +5,7 @@ QUICKSET_PREREQUISITES=( sdkman );
 
 for i in "${QUICKSET_PREREQUISITES[@]}"
 do
-   QUICKSET_PREQREQ_REPO_URL="https://raw.githubusercontent.com/onesupercoder/quickset/master/${i}/recipes/ubuntu/18/install.sh"
+   QUICKSET_PREQREQ_REPO_URL="https://raw.githubusercontent.com/onesupercoder/quickset/master/recipes/${i}/ubuntu/18/install.sh"
    /bin/bash -c "$(curl -fsSL "$QUICKSET_PREQREQ_REPO_URL")";
 done;
 
