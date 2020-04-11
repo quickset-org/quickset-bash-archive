@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ 
 QUICKSET_VERSION=0.0.0.2;
 QUICKSET_RECIPE=$1;
 QUICKSET_REPO="onesupercoder/quickset"
@@ -64,7 +64,7 @@ echo " ";
 [ "$#" -eq 1 ] || die "Error: Please provide one quickset recipe, $# provided"
 
 
-echo "Attempting quickset for $QUICKSET_EXACT_RECIPE";
+
 
 IFS='.'; # read delimiter
 read -ra QUICKSET_OS_VERSION_ARRAY <<< "$QUICKSET_FOUND_OS_VERSION"; # str is read into an array as tokens separated by IFS
@@ -75,14 +75,13 @@ for (( i=${#QUICKSET_OS_VERSION_ARRAY[@]}-1; i>=0; i-- ))
 done;
 
 QUICKSET_FOUND_PATH=false
+QUICKSET_EXACT_RECIPE="$QUICKSET_RECIPE/${QUICKSET_FOUND_OS,,}/$QUICKSET_FOUND_OS_VERSION";
+echo "Quicksetting $QUICKSET_EXACT_RECIPE";
 
 for i in "${QUICKSET_OS_VERSION_ARRAY_SORTED[@]}"
 do
-       
-
-    QUICKSET_EXACT_RECIPE="$QUICKSET_RECIPE/$QUICKSET_FOUND_OS/$QUICKSET_FOUND_OS_VERSION";
+    QUICKSET_EXACT_RECIPE="$QUICKSET_RECIPE/${QUICKSET_FOUND_OS,,}/$QUICKSET_FOUND_OS_VERSION";
     QUICKSET_RECIPE_URL="${QUICKSET_RAW_REPO}${QUICKSET_EXACT_RECIPE}/install.sh"
-    echo "$QUICKSET_RECIPE_URL";
     curl --output /dev/null --silent --head --fail "$QUICKSET_RECIPE_URL";
     if [ $? -eq 0 ]; then
         /bin/bash -c "$(curl -fsSL "$QUICKSET_RECIPE_URL")"
