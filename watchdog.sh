@@ -1,5 +1,5 @@
 #!/bin/sh
 
-#sudo apt install entr
+#sudo apt install entr 
 
-find . -name '*.sh' | entr ./quickset.sh
+find . -name '*.sh' | entr ./quickset.sh scala
