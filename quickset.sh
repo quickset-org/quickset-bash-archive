@@ -75,7 +75,7 @@ do
     QUICKSET_RECIPE_URL="${QUICKSET_RAW_REPO}recipes/${QUICKSET_LOOKUP_RECIPE}/install.sh";
     QUICKSET_RECIPE_STATUS_CODE="$(curl --output /dev/null --silent --head --write-out "%{http_code}" "$QUICKSET_RECIPE_URL")";
     if [ $QUICKSET_RECIPE_STATUS_CODE -eq 200 ]; then
-        /bin/bash --verbose -c "$(curl -fsSL "$QUICKSET_RECIPE_URL")"
+        /bin/bash -c "$(curl -fsSL "$QUICKSET_RECIPE_URL")"
         QUICKSET_FOUND_PATH=true;
         break;
     else
