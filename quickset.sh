@@ -92,4 +92,4 @@ if [ "$QUICKSET_FOUND_PATH" = false ] ; then
     exit 1;
 fi;
 
-echo "Complete."
+echo "Done."
