@@ -12,7 +12,7 @@ done;
 
 printf "* Installing graalvm.."
 
-/bin/bash -c "sdk install java "$QUICKSET_LATEST_GRAALVM_VERSION"";
-/bin/bash -c "sdk default java "$QUICKSET_LATEST_GRAALVM_VERSION"";
+/bin/bash -c "source "$HOME/.sdkman/bin/sdkman-init.sh"; sdk install java "$QUICKSET_LATEST_GRAALVM_VERSION"";
+/bin/bash -c "source "$HOME/.sdkman/bin/sdkman-init.sh"; sdk default java "$QUICKSET_LATEST_GRAALVM_VERSION"";
 
 echo "  Done."

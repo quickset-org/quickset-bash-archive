@@ -10,6 +10,7 @@ do
 done;
 
 printf "* Installing Scala... ";
+source "$HOME/.sdkman/bin/sdkman-init.sh";
 sdk install scala 2.13.1
 sdk default scala 2.13.1
 printf " Done.";
