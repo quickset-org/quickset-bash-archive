@@ -11,5 +11,9 @@ do
    /bin/bash -c "$(curl -fsSL "$QUICKSET_PREQREQ_REPO_URL")";
 done;
 
- /bin/bash -c "sdk install java "$QUICKSET_LATEST_GRAALVM_VERSION"";
- /bin/bash -c "sdk default java "$QUICKSET_LATEST_GRAALVM_VERSION"";
+printf "* Installing graalvm.."
+
+/bin/bash -c "sdk install java "$QUICKSET_LATEST_GRAALVM_VERSION"";
+/bin/bash -c "sdk default java "$QUICKSET_LATEST_GRAALVM_VERSION"";
+
+echo "  Done."

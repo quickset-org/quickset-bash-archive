@@ -3,7 +3,7 @@
 QUICKSET_VERSION=0.0.0.2;
 QUICKSET_RECIPE=$1;
 QUICKSET_REPO="onesupercoder/quickset"
-QUICKSET_RAW_REPO="https://raw.githubusercontent.com/${QUICKSET_REPO}/master/recipes/";
+QUICKSET_RAW_REPO="https://raw.githubusercontent.com/${QUICKSET_REPO}/master/";
 QUICKSET_GITHUB_REPO="https://github.com/${QUICKSET_REPO}";
 
 get_os_name_and_version () {
@@ -61,8 +61,10 @@ echo -e "---------------------------------------------------\e[0m";
 echo " ";
 
 
-[ "$#" -eq 1 ] || die "Error: Please provide one quickset recipe, $# provided"
-
+if [ "$#" -ne 1 ]; then
+ echo -e "\e[91mError: Please provide one quickset recipe, $# provided"
+ exit 1;
+fi;
 
 
 
@@ -81,9 +83,9 @@ echo "Quicksetting $QUICKSET_EXACT_RECIPE";
 for i in "${QUICKSET_OS_VERSION_ARRAY_SORTED[@]}"
 do
     QUICKSET_EXACT_RECIPE="$QUICKSET_RECIPE/${QUICKSET_FOUND_OS,,}/$QUICKSET_FOUND_OS_VERSION";
-    QUICKSET_RECIPE_URL="${QUICKSET_RAW_REPO}${QUICKSET_EXACT_RECIPE}/install.sh"
-    curl --output /dev/null --silent --head --fail "$QUICKSET_RECIPE_URL";
-    if [ $? -eq 0 ]; then
+    QUICKSET_RECIPE_URL="${QUICKSET_RAW_REPO}recipes/${QUICKSET_EXACT_RECIPE}/install.sh";
+    QUICKSET_RECIPE_STATUS_CODE="$(curl --output /dev/null --silent --head --write-out "%{http_code}" "$QUICKSET_RECIPE_URL")";
+    if [ $QUICKSET_RECIPE_STATUS_CODE -eq 200 ]; then
         /bin/bash -c "$(curl -fsSL "$QUICKSET_RECIPE_URL")"
         QUICKSET_FOUND_PATH=true;
         break;
