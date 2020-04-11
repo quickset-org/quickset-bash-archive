@@ -1,5 +1,6 @@
 #!/bin/bash
 
-#sudo apt install entr 
+#Ubuntu: sudo apt install entr
+#Mac: brew install entr
 
 find . -name '*.sh' | entr ./quickset.sh scala
