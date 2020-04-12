@@ -10,8 +10,14 @@
 
 ### Usage
 
-```quickset rails```
-
 ```quickset scala```
 
+### Goals
 
+```quickset rails```
+
+
+```quickset react-native-developer```
+
+
+```quickset data-analyst```
