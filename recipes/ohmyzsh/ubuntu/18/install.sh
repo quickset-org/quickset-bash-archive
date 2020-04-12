@@ -2,7 +2,8 @@
 
 
 printf "* Installing Oh-My-Zsh... ";
-if [ $0 = "-zsh" ]; then
+which -s zsh;
+if [[ $? != 0 ]] ; then
   if [ -f ~/.oh-my-zsh ]; then
     upgrade_oh_my_zsh
   else
