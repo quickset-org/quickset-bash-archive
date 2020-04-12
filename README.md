@@ -4,7 +4,7 @@
 ### Install
 
 ```
-/bin/bash -c "$(curl -H 'Cache-Control: no-cache' -fsSL https://raw.githubusercontent.com/onesupercoder/quickset/master/quickset.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/onesupercoder/quickset/master/quickset.sh)"
 ```
 
 

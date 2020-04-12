@@ -49,7 +49,7 @@ get_os_name_and_version;
 
 printf "\e[93mquickset \e[94mv$QUICKSET_VERSION\e[96m running for $QUICKSET_FOUND_OS ${QUICKSET_FOUND_OS_VERSION}\n\n";
 
-sudo bash -c "curl -H 'Cache-Control: no-cache' -fsSL "${QUICKSET_RAW_REPO}"quickset.sh > /usr/local/bin/quickset";
+sudo bash -c "curl -fsSL "${QUICKSET_RAW_REPO}"quickset.sh > /usr/local/bin/quickset";
 
 sudo bash -c "chmod +x /usr/local/bin/quickset";
 
@@ -77,7 +77,7 @@ do
     QUICKSET_RECIPE_URL="${QUICKSET_RAW_REPO}recipes/${QUICKSET_LOOKUP_RECIPE}/install.sh";
     QUICKSET_RECIPE_STATUS_CODE="$(curl --output /dev/null --silent --head --write-out "%{http_code}" "$QUICKSET_RECIPE_URL")";
     if [ $QUICKSET_RECIPE_STATUS_CODE -eq 200 ]; then
-        /bin/bash -c "$(curl -H 'Cache-Control: no-cache' -fsSL "$QUICKSET_RECIPE_URL")"
+        /bin/bash -c "$(curl -fsSL "$QUICKSET_RECIPE_URL")"
         QUICKSET_FOUND_PATH=true;
         break;
     else
