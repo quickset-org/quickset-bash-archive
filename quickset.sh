@@ -1,6 +1,6 @@
 #!/bin/bash
  
-QUICKSET_VERSION=0.0.0.2;
+QUICKSET_VERSION=0.0.0.3;
 QUICKSET_RECIPE=$1;
 QUICKSET_REPO="onesupercoder/quickset"
 QUICKSET_RAW_REPO="https://raw.githubusercontent.com/${QUICKSET_REPO}/master/";
