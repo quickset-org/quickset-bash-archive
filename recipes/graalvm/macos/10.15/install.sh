@@ -6,10 +6,10 @@ QUICKSET_PREREQUISITES=( sdkman );
 for i in "${QUICKSET_PREREQUISITES[@]}"
 do
    QUICKSET_PREQREQ_REPO_URL="https://raw.githubusercontent.com/onesupercoder/quickset/master/recipes/${i}/macos/10.15/install.sh"
-   /bin/bash -c "$(curl -fsSL "$QUICKSET_PREQREQ_REPO_URL")";
+   eval "$(curl -fsSL "$QUICKSET_PREQREQ_REPO_URL")";
 done;
 
-printf "* Installing graalvm.."
+printf "* Installing graalvm..."
 
 /bin/bash -c "source "$HOME/.sdkman/bin/sdkman-init.sh"; sdk install java "$QUICKSET_LATEST_GRAALVM_VERSION"";
 /bin/bash -c "source "$HOME/.sdkman/bin/sdkman-init.sh"; sdk default java "$QUICKSET_LATEST_GRAALVM_VERSION"";
