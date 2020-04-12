@@ -9,17 +9,18 @@ do
 done;
 
 printf "* Installing Oh-My-Zsh... ";
-which -s zsh;
-if [[ $? != 0 ]] ; then
-  if [ -f ~/.oh-my-zsh ]; then
-    upgrade_oh_my_zsh
+which -s upgrade_oh_my_zsh;
+if [[ $? = 0 ]] ; then
+  upgrade_oh_my_zsh;
+else
+  which -s zsh;
+  if [ $? = 0 ]; then
+    bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
   else
+    brew install zsh;
+    chsh -s /bin/zsh;
     bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   fi;
-else
-  bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
-  brew install zsh;
-  chsh -s /bin/zsh;
 fi;
 printf " Done.";
 
