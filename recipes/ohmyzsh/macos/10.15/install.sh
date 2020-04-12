@@ -9,8 +9,17 @@ do
    /bin/bash -c "$(curl -H 'Cache-Control: no-cache' -fsSL "$QUICKSET_PREQREQ_REPO_URL")";
 done;
 
-brew install zsh
+if [ $0 = "-zsh" ]; then
+  if [ -f ~/.oh-my-zsh ]; then
+    upgrade_oh_my_zsh
+  else
+    bash -c "$(curl -H 'Cache-Control: no-cache' -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  fi;
+else
+  bash -c "$(curl -H 'Cache-Control: no-cache' -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
+  brew install zsh;
+  chsh -s /bin/zsh;
+fi;
 
-chsh -s /bin/zsh
 
-sh -c "$(curl -H 'Cache-Control: no-cache' -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+

@@ -6,6 +6,7 @@ if [[ $? != 0 ]] ; then
 else
     brew update;
     brew upgrade;
+    brew cleanup;
 fi;
 
 
