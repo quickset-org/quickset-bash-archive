@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-
+printf "* Installing Oh-My-Zsh... ";
 if [ $0 = "-zsh" ]; then
   if [ -f ~/.oh-my-zsh ]; then
     upgrade_oh_my_zsh
@@ -13,3 +13,4 @@ else
   chsh -s /bin/zsh;
   bash -c "$(curl -H 'Cache-Control: no-cache' -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
 fi;
+printf " Done.";

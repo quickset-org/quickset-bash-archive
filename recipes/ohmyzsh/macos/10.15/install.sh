@@ -9,6 +9,7 @@ do
    /bin/bash -c "$(curl -H 'Cache-Control: no-cache' -fsSL "$QUICKSET_PREQREQ_REPO_URL")";
 done;
 
+printf "* Installing Oh-My-Zsh... ";
 if [ $0 = "-zsh" ]; then
   if [ -f ~/.oh-my-zsh ]; then
     upgrade_oh_my_zsh
@@ -20,6 +21,7 @@ else
   brew install zsh;
   chsh -s /bin/zsh;
 fi;
+printf " Done.";
 
 
 

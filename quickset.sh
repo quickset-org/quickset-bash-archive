@@ -54,7 +54,7 @@ sudo bash -c "curl -H 'Cache-Control: no-cache' -fsSL "${QUICKSET_RAW_REPO}"quic
 sudo bash -c "chmod +x /usr/local/bin/quickset";
 
 if [ "$#" -ne 1 ]; then
- printf "\e[32m Quickset installed. \e[93mUsage: quickset scala [or rails.. etc.]\n\n"
+ printf "\e[32mQuickset installed. \e[93mUsage: quickset scala [or rails.. etc.]\n\n"
  exit 1;
 fi;
 
